@@ -7,19 +7,26 @@ import {Route, Routes} from 'react-router-dom'
 import Lab1Page from './pages/Lab1Page.jsx'
 import PeoplePage from './pages/PeoplePage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import Home from './pages/Home.jsx'
+import Lab2Page from './pages/Lab2Page.jsx'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const menuItems = [
+    {id: 1, label: 'Home', url: '/home', element: <Home/> },
+    {id: 2, label: 'Laboratorium 1', url: '/laboratorium1', element: <Lab1Page/>},
+    {id: 3, label: 'Laboratorium 2', url: '/laboratorium2', element:<Lab2Page/> },
+    {id: 4, label: 'People', url: '/people/:id', element: <PeoplePage/>}
+  ]
 
   return (
     <>
-      <RootLayout>
+      <RootLayout items={menuItems}>
         <Routes>
-          <Route path="/lab1" element={<Lab1Page/>} />
-          <Route path="/lab2" element={<h1>Laboratorium 2</h1>}/>
-          <Route path="/people/:id" element={<PeoplePage/>}/>
-          <Route path="*" element={<NotFoundPage/>}/>
+          {menuItems.map((item) => (
+            <Route key={item.id} path={item.url} element={item.element} />
+          ))}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </RootLayout>
     </>
