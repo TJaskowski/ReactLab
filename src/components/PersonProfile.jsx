@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
 function PersonProfile( {person} ) {
   return (
@@ -10,6 +11,9 @@ function PersonProfile( {person} ) {
             <span>Birthdate: {person.birth}</span>
             <span>Eyes: {person.eyes}</span>
         </p>
+        <Button class="btn btn-primary" onClick={()=>{}}>Edit</Button>
+        <Button class="btn btn-danger" onClick={()=>{}}>Delete</Button>
+        <Button class="btn btn-warning" onClick={()=>{}}>Rate</Button>
       </div>
     </>
   )
