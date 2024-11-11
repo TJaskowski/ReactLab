@@ -15,7 +15,7 @@ function App() {
   const menuItems = [
     {id: 1, label: 'Home', url: '/home', element: <Home/> },
     {id: 2, label: 'Laboratorium 1', url: '/laboratorium1', element: <Lab1Page/>},
-    {id: 3, label: 'Laboratorium 2', url: '/laboratorium2', element:<Lab2Page/> },
+    {id: 3, label: 'Laboratorium 2', url: '/laboratorium2/:id', element:<Lab2Page/> },
     {id: 4, label: 'People', url: '/people/:id', element: <PeoplePage/>}
   ]
 
@@ -24,7 +24,7 @@ function App() {
       <RootLayout items={menuItems}>
         <Routes>
           {menuItems.map((item) => (
-            <Route key={item.id} path={item.url} element={item.element} />
+            <Route key={item.id} path={item.url} element={item.element}/>
           ))}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
