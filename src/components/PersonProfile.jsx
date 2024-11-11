@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
+import RatingBar from './RatingBar';
 
 function PersonProfile( {person} ) {
   const [rank, setRank] = useState(0);
@@ -22,9 +23,12 @@ function PersonProfile( {person} ) {
             <span>Birthdate: {person.birth}</span>
             <span>Eyes: {person.eyes}</span>
         </p>
+        <div className="d-flex justify-content-center align-items-center p-1" >
         <Button class="btn btn-primary" onClick={()=>{}}>Edit</Button>
         <Button class="btn btn-danger" onClick={()=>{}}>Delete</Button>
-        <Button class="btn btn-warning" onClick={rateClick}>Rate ({rank})</Button>
+        <Button class="btn btn-warning" onClick={rateClick}>Rate </Button>
+        </div>
+        <RatingBar rate={rank}/>
       </div>
     </>
   )
