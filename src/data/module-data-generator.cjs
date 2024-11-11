@@ -12,6 +12,10 @@ function getRandomEyeColor() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
+function getRandomRating() {
+    //TODO fill the script to generate rating from 0 to 10
+}
+
 const count = Number(process.argv[2]); // odczyt liczby obiektów
 let names = [];                        // tablica z imionami
 
@@ -34,6 +38,7 @@ fs.readFile('./src/names.txt', 'utf8', (err, data) => {
             name: name,
             birth: getRandomDate(new Date(1950, 0, 1), new Date(2023, 11, 31)),
             eyes: getRandomEyeColor()
+            //TODO here should be the rating function
         };
         console.log(person);
         content += JSON.stringify(person) + ",\n";
