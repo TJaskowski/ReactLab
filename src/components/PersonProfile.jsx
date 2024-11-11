@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 function PersonProfile( {person} ) {
+  const [rank, setRank] = useState(0);
+
+  const rateClick = () => {
+    if(rank === 0){
+      setRank(10);
+    } else if(rank === 10){
+      setRank(1);
+    } else {
+      setRank(rank + 1);
+    }
+  }
   return (
     <>
       <div>
@@ -13,7 +24,7 @@ function PersonProfile( {person} ) {
         </p>
         <Button class="btn btn-primary" onClick={()=>{}}>Edit</Button>
         <Button class="btn btn-danger" onClick={()=>{}}>Delete</Button>
-        <Button class="btn btn-warning" onClick={()=>{}}>Rate</Button>
+        <Button class="btn btn-warning" onClick={rateClick}>Rate ({rank})</Button>
       </div>
     </>
   )
