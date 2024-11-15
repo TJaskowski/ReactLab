@@ -3,18 +3,7 @@ import { Button } from 'react-bootstrap'
 import RatingBar from './RatingBar';
 
 function PersonProfile( {person, dispatch} ) {
-  // const [rank, setRank] = useState(0);
 
-  // const rateClick = () => {
-  //   if(rank === 0){
-  //     setRank(10);
-  //   } else if(rank === 10){
-  //     setRank(1);
-  //   } else {
-  //     setRank(rank + 1);
-  //   }
-  // }
-  
   return (
     <>
       <div key={person.id}>
@@ -60,3 +49,16 @@ function PersonProfile( {person, dispatch} ) {
 }
 
 export default PersonProfile
+
+  // const [rank, setRank] = useState(0);
+
+  // const rateClick = () => {
+  //   if(rank === 0){
+  //     setRank(10);                 Lab3/3
+  //   } else if(rank === 10){
+  //     setRank(1);
+  //   } else {
+  //     setRank(rank + 1);
+  //   }
+  // }
+  
