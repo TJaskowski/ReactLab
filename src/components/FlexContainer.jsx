@@ -9,8 +9,8 @@ function FlexContainer({element: Element, data}) {
     <Container>
       <Row>
         {items.map((item) =>
-            <Col  className='d-flex justify-content-center mb-4'>
-                <Element key={item.id} {...item}/>
+            <Col key={item.id} className='d-flex justify-content-center mb-4'>
+                <Element person={item} dispatch={dispatch}/>
             </Col>
         )}
       </Row>
