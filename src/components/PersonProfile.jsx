@@ -2,33 +2,58 @@ import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import RatingBar from './RatingBar';
 
-function PersonProfile( {person} ) {
-  const [rank, setRank] = useState(0);
+function PersonProfile( {person, dispatch} ) {
+  // const [rank, setRank] = useState(0);
 
-  const rateClick = () => {
-    if(rank === 0){
-      setRank(10);
-    } else if(rank === 10){
-      setRank(1);
-    } else {
-      setRank(rank + 1);
-    }
-  }
+  // const rateClick = () => {
+  //   if(rank === 0){
+  //     setRank(10);
+  //   } else if(rank === 10){
+  //     setRank(1);
+  //   } else {
+  //     setRank(rank + 1);
+  //   }
+  // }
+  
   return (
     <>
-      <div>
+      <div key={person.id}>
         <h3>{person.name}</h3>
         <h4>UserId: {person.id}</h4>
         <p>
             <span>Birthdate: {person.birth}</span>
+        </p>
+        <p>
             <span>Eyes: {person.eyes}</span>
         </p>
+        <p>
+             <span>Rating: {person.rating}</span>
+        </p>
         <div className="d-flex justify-content-center align-items-center p-1" >
-        <Button class="btn btn-primary" onClick={()=>{}}>Edit</Button>
-        <Button class="btn btn-danger" onClick={()=>{}}>Delete</Button>
-        <Button class="btn btn-warning" onClick={rateClick}>Rate </Button>
+
+        <Button className="btn btn-primary" onClick={() => {
+          dispatch({
+            type: 'edit',
+            id: person.id
+            });
+          }}>Edit</Button>
+
+        <Button className="btn btn-danger" onClick={() => {
+          dispatch({
+            type: 'delete',
+            id: person.id
+            });
+        }}>Delete</Button>
+
+        <Button className="btn btn-warning" onClick={() => {
+          dispatch({
+            type: 'rate',
+            id: person.id
+          });
+        }}>Rate </Button>
         </div>
-        <RatingBar rate={rank}/>
+
+        <RatingBar rate={person.rating}/>
       </div>
     </>
   )
