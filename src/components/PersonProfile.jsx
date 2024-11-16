@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Button } from 'react-bootstrap'
 import RatingBar from './RatingBar';
+import AppContext from '../data/AppContext';
 
-function PersonProfile( {person, dispatch} ) {
-
+function PersonProfile( {person} ) {
+  const context = useContext(AppContext);
+  const dispatch = context.dispatch;
   return (
     <>
       <div key={person.id}>
