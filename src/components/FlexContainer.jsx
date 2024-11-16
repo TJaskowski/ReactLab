@@ -4,13 +4,13 @@ import { useReducer } from 'react'
 import AppReducer from '../data/AppReducer'
 
 function FlexContainer({element: Element, data}) {
-    const [items, dispatch] = useReducer(AppReducer, data);
+    const [items, dispatch] = useReducer(AppReducer, data); //this should be deleted
   return (
     <Container>
       <Row>
         {items.map((item) =>
-            <Col className='d-flex justify-content-center mb-4'>
-                <Element key={item.id} person={item} dispatch={dispatch}/>
+            <Col key={item.id} className='d-flex justify-content-center mb-4'>
+                <Element  person={item} dispatch={dispatch}/>
             </Col>
         )}
       </Row>
