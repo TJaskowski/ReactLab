@@ -14,6 +14,8 @@ import Lab4Page from './pages/Lab4Page.jsx'
 import AppReducer from './data/AppReducer.js'
 import AppContext from './data/AppContext.js'
 import { data } from './data/module-data.js'
+import CreateForm from './components/CreateForm.jsx'
+import EditForm from './components/EditForm.jsx'
 
 
 function App() {
@@ -23,7 +25,9 @@ function App() {
     {id: 3, label: 'Laboratorium 2', url: '/lab2/:id', element:<Lab2Page/> },
     {id: 4, label: 'Laboratorium 3', url: '/lab3', element: <Lab3Page/>},
     {id: 5, label: 'Laboratorium 4', url: '/lab4', element: <Lab4Page/>},
-    {id: 6, label: 'People', url: '/people/:id', element: <PeoplePage/>}
+    {id: 6, label: 'Edit', url: '/lab4/edit', element: <EditForm/>},
+    {id: 7, label: 'Add', url: '/lab4/add', element: <CreateForm/>},
+    {id: 8, label: 'People', url: '/people/:id', element: <PeoplePage/>}
   ];
 
   const [state, appDispatch] = useReducer(AppReducer, data);
