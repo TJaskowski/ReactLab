@@ -1,6 +1,4 @@
-import { useReducer, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useReducer } from 'react'
 import './App.css'
 import RootLayout from './layouts/RootLayout.jsx'
 import {Route, Routes} from 'react-router-dom'

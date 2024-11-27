@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button, Container, Form, FormControl } from "react-bootstrap";
 
 function CreateForm() {
     const [errors, setErrors] = useState([]);
@@ -30,12 +31,14 @@ function CreateForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <label for="taskName">Nazwa zadania</label>
+      <Form className='text-primary' onSubmit={onSubmit}>
+        <Form.Group>
+        <Form.Label for="taskName">Nazwa zadania</Form.Label>
         <input type="text" name="taskName" id='taskName' placeholder='Wpisz nazwe' />
         
-        <button type='submit' disabled={isSending}>Zapisz</button>
-      </form>
+        <button className='btn btn-primary' type='submit' disabled={isSending}>Zapisz</button>
+        </Form.Group>
+      </Form>
     </>
   )
 }
