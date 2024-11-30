@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Button } from 'react-bootstrap'
 import RatingBar from './RatingBar';
+import AppContext from '../data/AppContext';
+import { useNavigate } from 'react-router-dom';
 
-function PersonProfile( {person, dispatch} ) {
-
+function PersonProfile( {person} ) {
+  const context = useContext(AppContext);
+  const dispatch = context.dispatch;
+  const navigate = useNavigate();
   return (
     <>
       <div key={person.id}>
@@ -25,6 +29,7 @@ function PersonProfile( {person, dispatch} ) {
             type: 'edit',
             id: person.id
             });
+            navigate(`/lab4/edit/${person.id}`);
           }}>Edit</Button>
 
         <Button className="btn btn-danger" onClick={() => {

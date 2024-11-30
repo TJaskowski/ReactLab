@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { useReducer } from 'react'
-import AppReducer from '../data/AppReducer'
+import AppContext from '../data/AppContext'
 
-function FlexContainer({element: Element, data}) {
-    const [items, dispatch] = useReducer(AppReducer, data);
+function FlexContainer({element: Element}) {
+   const context = useContext(AppContext);
+   const items = context.items;
   return (
     <Container>
       <Row>
         {items.map((item) =>
-            <Col className='d-flex justify-content-center mb-4'>
-                <Element key={item.id} person={item} dispatch={dispatch}/>
+            <Col key={item.id} className='d-flex justify-content-center mb-4'>
+                <Element  person={item} />
             </Col>
         )}
       </Row>

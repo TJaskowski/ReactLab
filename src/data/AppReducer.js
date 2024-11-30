@@ -1,7 +1,6 @@
 export default function AppReducer(state, action){
     switch(action.type){
         case "edit":
-            console.log("edit pushed")
             return state;
         case "rate":{
             return state.map(item => item.id === action.id ? 
@@ -10,6 +9,11 @@ export default function AppReducer(state, action){
             );
         }
         case "delete":
-            return state.filter(item => item.id !== action.id);       
-    }
+            return state.filter(item => item.id !== action.id);     
+        
+            case "add":
+                return [...state, action.data];
+           
+        }
+    
 }   
